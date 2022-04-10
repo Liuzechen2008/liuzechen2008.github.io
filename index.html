@@ -22,9 +22,9 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liuzechen2008.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="website">
-<meta property="og:title" content="Personal Blog">
+<meta property="og:title" content="Personal Blogs">
 <meta property="og:url" content="https://liuzechen2008.github.io/index.html">
-<meta property="og:site_name" content="Personal Blog">
+<meta property="og:site_name" content="Personal Blogs">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Zechen Liu">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Personal Blog</title>
+<title>Personal Blogs</title>
   
 
 
@@ -67,7 +67,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Personal Blog</h1>
+      <h1 class="site-title">Personal Blogs</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -124,13 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -173,6 +173,165 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/10/control-flow-functions-in-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/10/control-flow-functions-in-mysql/" class="post-title-link" itemprop="url">Flow Control Functions in MySQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-10 12:31:45 / Modified: 12:48:41" itemprop="dateCreated datePublished" datetime="2022-04-10T12:31:45+08:00">2022-04-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="IF"><a href="#IF" class="headerlink" title="IF()"></a><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/flow-control-functions.html#function_if">IF()</a></h1><p><strong>Example:</strong> Write an SQL query to calculate the bonus of each employee. The bonus of an employee is 100% of their salary <strong>if the ID of the employee is an odd number and the employee name does not start with the character ‘M’</strong>. The bonus of an employee is 0 otherwise.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Employees table:</span><br><span class="line">+-------------+---------+--------+</span><br><span class="line">| employee_id | name    | salary |</span><br><span class="line">+-------------+---------+--------+</span><br><span class="line">| 2           | Meir    | 3000   |</span><br><span class="line">| 3           | Michael | 3800   |</span><br><span class="line">| 7           | Addilyn | 7400   |</span><br><span class="line">| 8           | Juan    | 6100   |</span><br><span class="line">| 9           | Kannon  | 7700   |</span><br><span class="line">+-------------+---------+--------+</span><br><span class="line">Output: </span><br><span class="line">+-------------+-------+</span><br><span class="line">| employee_id | bonus |</span><br><span class="line">+-------------+-------+</span><br><span class="line">| 2           | 0     |</span><br><span class="line">| 3           | 0     |</span><br><span class="line">| 7           | 7400  |</span><br><span class="line">| 8           | 0     |</span><br><span class="line">| 9           | 7700  |</span><br><span class="line">+-------------+-------+</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line">SELECT </span><br><span class="line">    employee_id,</span><br><span class="line">    if(</span><br><span class="line">        employee_id % 2 = 1 &amp;&amp; name NOT LIKE &#x27;M%&#x27;,</span><br><span class="line">        salary,</span><br><span class="line">        0</span><br><span class="line">    ) AS bonus</span><br><span class="line">FROM</span><br><span class="line">    Employees;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/10/common-SQL-programming-mistakes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/10/common-SQL-programming-mistakes/" class="post-title-link" itemprop="url">Common SQL Programming Mistakes</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-10 11:04:48 / Modified: 13:03:23" itemprop="dateCreated datePublished" datetime="2022-04-10T11:04:48+08:00">2022-04-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="NULLs-and-the-NOT-IN-predicate"><a href="#NULLs-and-the-NOT-IN-predicate" class="headerlink" title="NULLs and the NOT IN predicate"></a>NULLs and the NOT IN predicate</h1><p><strong>Example:</strong> Write an SQL query to report the IDs of the customer that are <strong>not referred by</strong> the customer with <code>id = 2</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Customer table:</span><br><span class="line">+----+------+------------+</span><br><span class="line">| id | name | referee_id |</span><br><span class="line">+----+------+------------+</span><br><span class="line">| 1  | Will | null       |</span><br><span class="line">| 2  | Jane | null       |</span><br><span class="line">| 3  | Alex | 2          |</span><br><span class="line">| 4  | Bill | null       |</span><br><span class="line">| 5  | Zack | 1          |</span><br><span class="line">+----+------+------------+</span><br><span class="line">Output: </span><br><span class="line">+------+</span><br><span class="line">| name |</span><br><span class="line">+------+</span><br><span class="line">| Will |</span><br><span class="line">| Jane |</span><br><span class="line">| Bill |</span><br><span class="line">| Zack |</span><br><span class="line">+------+</span><br></pre></td></tr></table></figure>
+
+<p>MySQL uses three-valued logic – TRUE, FALSE and UNKNOWN.</p>
+<p>Anything compared to NULL evaluates to the third value: UNKNOWN. That “not referred by  the customer” includes NULL itself.</p>
+<p>Thus, one more condition ‘referee_id IS NULL’ should be added to the WHERE clause as below.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Answer1</span><br><span class="line">SELECT name FROM customer WHERE referee_id NOT IN (2) OR referee_id IS NULL;</span><br><span class="line">#Answer2</span><br><span class="line">SELECT name FROM customer WHERE referee_id != 2 OR referee_id IS NULL;</span><br><span class="line">#Answer3</span><br><span class="line">SELECT name FROM customer WHERE IFNULL(referee_id, 0) != 2;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Table-aliases-in-a-multiple-table"><a href="#Table-aliases-in-a-multiple-table" class="headerlink" title="Table aliases in a multiple-table"></a>Table aliases in a multiple-table</h1><p><strong>Example:</strong> Write an SQL query to delete all the duplicate emails, keeping only one unique email with <strong>the smallest id</strong>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Person table:</span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">| 3  | john@example.com |</span><br><span class="line">+----+------------------+</span><br><span class="line">Output: </span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">+----+------------------+</span><br></pre></td></tr></table></figure>
+
+<p>If you declare an alias for a table, you must use the alias when referring to the table:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line">DELETE </span><br><span class="line">	p1 </span><br><span class="line">FROM </span><br><span class="line">	Person p1, Person p2</span><br><span class="line">WHERE</span><br><span class="line">    p1.Email = p2.Email AND p1.Id &gt; p2.Id</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/08/useful-linux-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,12 +340,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Personal Blog">
+      <meta itemprop="name" content="Personal Blogs">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Personal Blog">
+      <meta itemprop="name" content="undefined | Personal Blogs">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -201,9 +360,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-08 21:34:28 / Modified: 22:08:11" itemprop="dateCreated datePublished" datetime="2022-04-08T21:34:28+08:00">2022-04-08</time>
+      <time title="Created: 2022-04-08 21:34:28" itemprop="dateCreated datePublished" datetime="2022-04-08T21:34:28+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-10 11:05:25" itemprop="dateModified" datetime="2022-04-10T11:05:25+08:00">2022-04-10</time>
     </span>
 
   
@@ -261,12 +426,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Personal Blog">
+      <meta itemprop="name" content="Personal Blogs">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Personal Blog">
+      <meta itemprop="name" content="undefined | Personal Blogs">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
