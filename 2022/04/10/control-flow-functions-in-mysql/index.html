@@ -29,7 +29,7 @@
 <meta property="og:description" content="IF()Example: Write an SQL query to calculate the bonus of each employee. The bonus of an employee is 100% of their salary if the ID of the employee is an odd number and the employee name does not star">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-10T04:31:45.000Z">
-<meta property="article:modified_time" content="2022-04-10T04:48:41.941Z">
+<meta property="article:modified_time" content="2022-04-10T05:13:17.160Z">
 <meta property="article:author" content="Zechen Liu">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-04-10 12:31:45 / Modified: 12:48:41" itemprop="dateCreated datePublished" datetime="2022-04-10T12:31:45+08:00">2022-04-10</time>
+      <time title="Created: 2022-04-10 12:31:45 / Modified: 13:13:17" itemprop="dateCreated datePublished" datetime="2022-04-10T12:31:45+08:00">2022-04-10</time>
     </span>
 
   
@@ -228,7 +228,7 @@
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line">SELECT </span><br><span class="line">    employee_id,</span><br><span class="line">    if(</span><br><span class="line">        employee_id % 2 = 1 &amp;&amp; name NOT LIKE &#x27;M%&#x27;,</span><br><span class="line">        salary,</span><br><span class="line">        0</span><br><span class="line">    ) AS bonus</span><br><span class="line">FROM</span><br><span class="line">    Employees;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id,</span><br><span class="line">    if(</span><br><span class="line">        employee_id <span class="operator">%</span> <span class="number">2</span> <span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;&amp;</span> name <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;M%&#x27;</span>,</span><br><span class="line">        salary,</span><br><span class="line">        <span class="number">0</span></span><br><span class="line">    ) <span class="keyword">AS</span> bonus</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employees;</span><br></pre></td></tr></table></figure>
 
 
     </div>
