@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,6 +173,80 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/12/best-practices-for-SQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/12/best-practices-for-SQL/" class="post-title-link" itemprop="url">Best practices for SQL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-04-12 11:04:48 / Modified: 20:47:53" itemprop="dateCreated datePublished" datetime="2022-04-12T11:04:48+08:00">2022-04-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Rearrange-Table"><a href="#Rearrange-Table" class="headerlink" title="Rearrange Table"></a>Rearrange Table</h2><p>A UNION statement does a SELECT DISTINCT on the results set. </p>
+<p>If you know that all the records returned are unique from your union, use <strong>UNION ALL</strong> instead, it gives faster results.</p>
+<p> <strong>Example:</strong> Write an SQL query to rearrange the Products table so that each row has (product_id, store, price). If a product is not available in a store, do not include a row with that product_id and store combination in the result table.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Products table:</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| product_id | store1 | store2 | store3 |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| 0          | 95     | 100    | 105    |</span><br><span class="line">| 1          | 70     | null   | 80     |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">Output: </span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| product_id | store  | price |</span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| 0          | store1 | 95    |</span><br><span class="line">| 0          | store2 | 100   |</span><br><span class="line">| 0          | store3 | 105   |</span><br><span class="line">| 1          | store1 | 70    |</span><br><span class="line">| 1          | store3 | 80    |</span><br><span class="line">+------------+--------+-------+</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store1&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store1 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store2&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store2 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store2 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store3&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store3 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store3 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/11/string-functions-in-mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -201,9 +275,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-11 10:31:45 / Modified: 20:46:20" itemprop="dateCreated datePublished" datetime="2022-04-11T10:31:45+08:00">2022-04-11</time>
+      <time title="Created: 2022-04-11 10:31:45" itemprop="dateCreated datePublished" datetime="2022-04-11T10:31:45+08:00">2022-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-12 20:47:53" itemprop="dateModified" datetime="2022-04-12T20:47:53+08:00">2022-04-12</time>
     </span>
 
   
@@ -228,7 +308,7 @@
 <p><strong>Example:</strong> Write an SQL query to find for each date the number of different products sold and their names.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Activities table:</span><br><span class="line">+------------+------------+</span><br><span class="line">| sell_date  | product    |</span><br><span class="line">+------------+------------+</span><br><span class="line">| 2020-05-30 | Headphone  |</span><br><span class="line">| 2020-06-01 | Pencil     |</span><br><span class="line">| 2020-06-02 | Mask       |</span><br><span class="line">| 2020-05-30 | Basketball |</span><br><span class="line">| 2020-06-01 | Bible      |</span><br><span class="line">| 2020-06-02 | Mask       |</span><br><span class="line">| 2020-05-30 | T-Shirt    |</span><br><span class="line">+------------+------------+</span><br><span class="line">Output: </span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| sell_date  | num_sold | products                     |</span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |</span><br><span class="line">| 2020-06-01 | 2        | Bible,Pencil                 |</span><br><span class="line">| 2020-06-02 | 1        | Mask                         |</span><br><span class="line">+------------+----------+------------------------------+</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    sell_date,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> product)  <span class="keyword">as</span> num_sold,</span><br><span class="line">    GROUP_CONCAT(<span class="keyword">distinct</span> product <span class="keyword">order</span> <span class="keyword">by</span> product SEPARATOR <span class="string">&#x27;,&#x27;</span>) products  </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activities </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    sell_date  </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    sell_date;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    sell_date,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="keyword">distinct</span> product) <span class="keyword">AS</span> num_sold,</span><br><span class="line">    GROUP_CONCAT(<span class="keyword">distinct</span> product <span class="keyword">order</span> <span class="keyword">by</span> product SEPARATOR <span class="string">&#x27;,&#x27;</span>) <span class="keyword">AS</span> products  </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activities </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    sell_date  </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    sell_date;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Regex"><a href="#Regex" class="headerlink" title="Regex"></a>Regex</h1><p><strong>Example:</strong> Write an SQL query to report the patients who have Type I Diabetes. Type I Diabetes always starts with DIAB1 prefix.</p>
@@ -297,7 +377,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-11 20:46:20" itemprop="dateModified" datetime="2022-04-11T20:46:20+08:00">2022-04-11</time>
+      <time title="Modified: 2022-04-12 20:47:53" itemprop="dateModified" datetime="2022-04-12T20:47:53+08:00">2022-04-12</time>
     </span>
 
   
@@ -317,7 +397,12 @@
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id,</span><br><span class="line">    if(</span><br><span class="line">        employee_id <span class="operator">%</span> <span class="number">2</span> <span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;&amp;</span> name <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;M%&#x27;</span>,</span><br><span class="line">        salary,</span><br><span class="line">        <span class="number">0</span></span><br><span class="line">    ) <span class="keyword">AS</span> bonus</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employees;</span><br></pre></td></tr></table></figure>
 
+<h1 id="IFNULL"><a href="#IFNULL" class="headerlink" title="IFNULL()"></a><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/flow-control-functions.html#function_ifnull">IFNULL()</a></h1><p><strong>Example:</strong> Write an SQL query to report the second highest salary from the Employee table. If there is no second highest salary, the query should report null.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Employee table:</span><br><span class="line">+----+--------+</span><br><span class="line">| id | salary |</span><br><span class="line">+----+--------+</span><br><span class="line">| 1  | 100    |</span><br><span class="line">+----+--------+</span><br><span class="line">Output: </span><br><span class="line">+---------------------+</span><br><span class="line">| SecondHighestSalary |</span><br><span class="line">+---------------------+</span><br><span class="line">| null                |</span><br><span class="line">+---------------------+</span><br></pre></td></tr></table></figure>
 
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line"><span class="keyword">SELECT</span> IFNULL((<span class="keyword">SELECT</span> <span class="keyword">distinct</span> Salary <span class="keyword">FROM</span> Employee <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span> LIMIT <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>), <span class="keyword">NULL</span>)</span><br><span class="line"><span class="keyword">AS</span> SecondHighestSalary;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -379,7 +464,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-11 20:46:20" itemprop="dateModified" datetime="2022-04-11T20:46:20+08:00">2022-04-11</time>
+      <time title="Modified: 2022-04-12 20:47:53" itemprop="dateModified" datetime="2022-04-12T20:47:53+08:00">2022-04-12</time>
     </span>
 
   
@@ -399,6 +484,13 @@
 <p>Anything compared to NULL evaluates to the third value: UNKNOWN. That “not referred by  the customer” includes NULL itself.</p>
 <p>Thus, one more condition ‘referee_id IS NULL’ should be added to the WHERE clause as below.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Answer1</span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> customer <span class="keyword">WHERE</span> referee_id <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="number">2</span>) <span class="keyword">OR</span> referee_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br><span class="line">#Answer2</span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> customer <span class="keyword">WHERE</span> referee_id <span class="operator">!=</span> <span class="number">2</span> <span class="keyword">OR</span> referee_id <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br><span class="line">#Answer3</span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> customer <span class="keyword">WHERE</span> IFNULL(referee_id, <span class="number">0</span>) <span class="operator">!=</span> <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example:</strong> Write an SQL query to report the type of each node in the tree.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Tree table:</span><br><span class="line">+----+------+</span><br><span class="line">| id | p_id |</span><br><span class="line">+----+------+</span><br><span class="line">| 1  | null |</span><br><span class="line">| 2  | 1    |</span><br><span class="line">| 3  | 1    |</span><br><span class="line">| 4  | 2    |</span><br><span class="line">| 5  | 2    |</span><br><span class="line">+----+------+</span><br><span class="line">Output: </span><br><span class="line">+----+-------+</span><br><span class="line">| id | type  |</span><br><span class="line">+----+-------+</span><br><span class="line">| 1  | Root  |</span><br><span class="line">| 2  | Inner |</span><br><span class="line">| 3  | Leaf  |</span><br><span class="line">| 4  | Leaf  |</span><br><span class="line">| 5  | Leaf  |</span><br><span class="line">+----+-------+</span><br></pre></td></tr></table></figure>
+
+<p>In the Mistake, id not in (select p_id from tree) means id !&#x3D; null.<br>Because the result of any arithmetic comparison with NULL is also NULL, you can only obtain NULL from such comparisons. In MySQL, 0 or NULL means <strong>false</strong> and anything else means true. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#Mistake</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    id,</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">when</span> p_id <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">then</span> &quot;Root&quot;</span><br><span class="line">         <span class="keyword">when</span> id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> p_id <span class="keyword">from</span> tree) <span class="keyword">then</span> &quot;Leaf&quot;</span><br><span class="line">         <span class="keyword">else</span> &quot;Inner&quot;</span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">as</span> Type</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    tree</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">#Answer1</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    id,</span><br><span class="line">    <span class="keyword">case</span> </span><br><span class="line">        <span class="keyword">when</span> p_id <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">then</span> &quot;Root&quot;</span><br><span class="line">        <span class="keyword">when</span> id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> p_id <span class="keyword">from</span> tree <span class="keyword">where</span> p_id <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>) <span class="keyword">then</span> &quot;Leaf&quot;</span><br><span class="line">        <span class="keyword">else</span> &quot;Inner&quot;</span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">as</span> Type</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    tree</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">#Answer2</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    id <span class="keyword">AS</span> `Id`,</span><br><span class="line">    <span class="keyword">CASE</span></span><br><span class="line">        <span class="keyword">WHEN</span> tree.id <span class="operator">=</span> (<span class="keyword">SELECT</span> atree.id <span class="keyword">FROM</span> tree atree <span class="keyword">WHERE</span> atree.p_id <span class="keyword">IS</span> <span class="keyword">NULL</span>)</span><br><span class="line">          <span class="keyword">THEN</span> <span class="string">&#x27;Root&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> tree.id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> atree.p_id <span class="keyword">FROM</span> tree atree)</span><br><span class="line">          <span class="keyword">THEN</span> <span class="string">&#x27;Inner&#x27;</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="string">&#x27;Leaf&#x27;</span></span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> Type</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    tree</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+
 
 <h1 id="Table-aliases-in-a-multiple-table"><a href="#Table-aliases-in-a-multiple-table" class="headerlink" title="Table aliases in a multiple-table"></a>Table aliases in a multiple-table</h1><p><strong>Example:</strong> Write an SQL query to delete all the duplicate emails, keeping only one unique email with <strong>the smallest id</strong>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Person table:</span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">| 3  | john@example.com |</span><br><span class="line">+----+------------------+</span><br><span class="line">Output: </span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">+----+------------------+</span><br></pre></td></tr></table></figure>

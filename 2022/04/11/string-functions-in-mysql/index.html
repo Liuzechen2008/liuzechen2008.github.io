@@ -29,7 +29,7 @@
 <meta property="og:description" content="Change the StringUPPER(str)&#x2F;LOWER(str)LOWER() (and UPPER()) are ineffective when applied to binary strings (BINARY, VARBINARY, BLOB).  LEFT(str,len)&#x2F;RIGHT(str,len)Returns the leftmost&#x2F;r">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-11T02:31:45.000Z">
-<meta property="article:modified_time" content="2022-04-11T12:46:20.130Z">
+<meta property="article:modified_time" content="2022-04-12T12:47:53.788Z">
 <meta property="article:author" content="Zechen Liu">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-11 10:31:45 / Modified: 20:46:20" itemprop="dateCreated datePublished" datetime="2022-04-11T10:31:45+08:00">2022-04-11</time>
+      <time title="Created: 2022-04-11 10:31:45" itemprop="dateCreated datePublished" datetime="2022-04-11T10:31:45+08:00">2022-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-12 20:47:53" itemprop="dateModified" datetime="2022-04-12T20:47:53+08:00">2022-04-12</time>
     </span>
 
   
@@ -235,7 +241,7 @@
 <p><strong>Example:</strong> Write an SQL query to find for each date the number of different products sold and their names.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Activities table:</span><br><span class="line">+------------+------------+</span><br><span class="line">| sell_date  | product    |</span><br><span class="line">+------------+------------+</span><br><span class="line">| 2020-05-30 | Headphone  |</span><br><span class="line">| 2020-06-01 | Pencil     |</span><br><span class="line">| 2020-06-02 | Mask       |</span><br><span class="line">| 2020-05-30 | Basketball |</span><br><span class="line">| 2020-06-01 | Bible      |</span><br><span class="line">| 2020-06-02 | Mask       |</span><br><span class="line">| 2020-05-30 | T-Shirt    |</span><br><span class="line">+------------+------------+</span><br><span class="line">Output: </span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| sell_date  | num_sold | products                     |</span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |</span><br><span class="line">| 2020-06-01 | 2        | Bible,Pencil                 |</span><br><span class="line">| 2020-06-02 | 1        | Mask                         |</span><br><span class="line">+------------+----------+------------------------------+</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    sell_date,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> product)  <span class="keyword">as</span> num_sold,</span><br><span class="line">    GROUP_CONCAT(<span class="keyword">distinct</span> product <span class="keyword">order</span> <span class="keyword">by</span> product SEPARATOR <span class="string">&#x27;,&#x27;</span>) products  </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activities </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    sell_date  </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    sell_date;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    sell_date,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="keyword">distinct</span> product) <span class="keyword">AS</span> num_sold,</span><br><span class="line">    GROUP_CONCAT(<span class="keyword">distinct</span> product <span class="keyword">order</span> <span class="keyword">by</span> product SEPARATOR <span class="string">&#x27;,&#x27;</span>) <span class="keyword">AS</span> products  </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Activities </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    sell_date  </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    sell_date;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Regex"><a href="#Regex" class="headerlink" title="Regex"></a>Regex</h1><p><strong>Example:</strong> Write an SQL query to report the patients who have Type I Diabetes. Type I Diabetes always starts with DIAB1 prefix.</p>
@@ -263,6 +269,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/04/12/best-practices-for-SQL/" rel="next" title="Best practices for SQL">
+                  Best practices for SQL <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

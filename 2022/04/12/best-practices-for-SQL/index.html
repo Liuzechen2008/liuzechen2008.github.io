@@ -21,27 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liuzechen2008.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Rearrange TableA UNION statement does a SELECT DISTINCT on the results set.  If you know that all the records returned are unique from your union, use UNION ALL instead, it gives faster results.  Exam">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://liuzechen2008.github.io/2021/07/13/hello-world/index.html">
+<meta property="og:title" content="Best practices for SQL">
+<meta property="og:url" content="https://liuzechen2008.github.io/2022/04/12/best-practices-for-SQL/index.html">
 <meta property="og:site_name" content="Personal Blogs">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Rearrange TableA UNION statement does a SELECT DISTINCT on the results set.  If you know that all the records returned are unique from your union, use UNION ALL instead, it gives faster results.  Exam">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-13T12:46:25.000Z">
-<meta property="article:modified_time" content="2022-04-08T13:17:02.885Z">
+<meta property="article:published_time" content="2022-04-12T03:04:48.000Z">
+<meta property="article:modified_time" content="2022-04-12T12:47:53.788Z">
 <meta property="article:author" content="Zechen Liu">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://liuzechen2008.github.io/2021/07/13/hello-world/">
+<link rel="canonical" href="https://liuzechen2008.github.io/2022/04/12/best-practices-for-SQL/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://liuzechen2008.github.io/2021/07/13/hello-world/","path":"2021/07/13/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://liuzechen2008.github.io/2022/04/12/best-practices-for-SQL/","path":"2022/04/12/best-practices-for-SQL/","title":"Best practices for SQL"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | Personal Blogs</title>
+<title>Best practices for SQL | Personal Blogs</title>
   
 
 
@@ -116,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rearrange-Table"><span class="nav-number">1.</span> <span class="nav-text">Rearrange Table</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2021/07/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/12/best-practices-for-SQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | Personal Blogs">
+      <meta itemprop="name" content="Best practices for SQL | Personal Blogs">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Best practices for SQL
         </h1>
 
         <div class="post-meta-container">
@@ -207,15 +208,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-07-13 20:46:25" itemprop="dateCreated datePublished" datetime="2021-07-13T20:46:25+08:00">2021-07-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-08 21:17:02" itemprop="dateModified" datetime="2022-04-08T21:17:02+08:00">2022-04-08</time>
+      <time title="Created: 2022-04-12 11:04:48 / Modified: 20:47:53" itemprop="dateCreated datePublished" datetime="2022-04-12T11:04:48+08:00">2022-04-12</time>
     </span>
 
   
@@ -228,20 +223,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Rearrange-Table"><a href="#Rearrange-Table" class="headerlink" title="Rearrange Table"></a>Rearrange Table</h2><p>A UNION statement does a SELECT DISTINCT on the results set. </p>
+<p>If you know that all the records returned are unique from your union, use <strong>UNION ALL</strong> instead, it gives faster results.</p>
+<p> <strong>Example:</strong> Write an SQL query to rearrange the Products table so that each row has (product_id, store, price). If a product is not available in a store, do not include a row with that product_id and store combination in the result table.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Products table:</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| product_id | store1 | store2 | store3 |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| 0          | 95     | 100    | 105    |</span><br><span class="line">| 1          | 70     | null   | 80     |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">Output: </span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| product_id | store  | price |</span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| 0          | store1 | 95    |</span><br><span class="line">| 0          | store2 | 100   |</span><br><span class="line">| 0          | store3 | 105   |</span><br><span class="line">| 1          | store1 | 70    |</span><br><span class="line">| 1          | store3 | 80    |</span><br><span class="line">+------------+--------+-------+</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store1&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store1 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store2&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store2 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store2 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store3&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store3 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store3 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -249,16 +236,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SQL/" rel="tag"># SQL</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/04/11/string-functions-in-mysql/" rel="prev" title="String Functions in MySQL">
+                  <i class="fa fa-chevron-left"></i> String Functions in MySQL
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/08/useful-linux-command/" rel="next" title="Useful Linux Command Tips & Tricks">
-                  Useful Linux Command Tips & Tricks <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
