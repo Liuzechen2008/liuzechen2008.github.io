@@ -124,13 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -164,6 +164,84 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/25/reservoir-sampling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/25/reservoir-sampling/" class="post-title-link" itemprop="url">Reservoir Sampling</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-25 20:46:25" itemprop="dateCreated datePublished" datetime="2022-04-25T20:46:25+08:00">2022-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-27 18:07:42" itemprop="dateModified" datetime="2022-04-27T18:07:42+08:00">2022-04-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>The problem goes like this: Given an integer array nums with possible duplicates, randomly output the index of a given target number. Each index should have an <strong>equal probability</strong> of returning.</p>
+<h2 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] nums;</span><br><span class="line">    Random random;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Solution</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.nums = nums;</span><br><span class="line">        random = <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pick</span><span class="params">(<span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, cnt = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == target) &#123;</span><br><span class="line">                ++cnt;</span><br><span class="line">                <span class="keyword">if</span> (random.nextInt(cnt) == <span class="number">0</span>) &#123;</span><br><span class="line">                    ans = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Reservoir sampling allows us to randomly sample elements without knowing sample size.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -209,7 +287,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-24 23:17:16" itemprop="dateModified" datetime="2022-04-24T23:17:16+08:00">2022-04-24</time>
+      <time title="Modified: 2022-04-27 18:07:42" itemprop="dateModified" datetime="2022-04-27T18:07:42+08:00">2022-04-27</time>
     </span>
 
   
@@ -272,12 +350,25 @@
 <li>OSI model provides a clear distinction between interfaces, services, and protocols. TCP&#x2F;IP doesn’t.</li>
 <li>In the OSI model, the transport layer is only connection-oriented. A layer of the TCP&#x2F;IP model is both connection-oriented and connectionless.</li>
 </ul>
-<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>HTTP is an application-layer protocol for transmitting hypermedia documents, such as HTML.</p>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><ul>
+<li>HTTP is an application-layer protocol for transmitting Web pages (documents) which consist of objects, such as HTML file, a JPEG image, or a video clip.</li>
+<li>HTTP uses TCP as its underlying transport protocol.</li>
+</ul>
+<h4 id="Request-Message"><a href="#Request-Message" class="headerlink" title="Request Message"></a>Request Message</h4><p>Request line: first line of an HTTP request message. (contains the method field, the URL field, and the HTTP version field).</p>
+<p>Header lines: the subsequent lines of an HTTP request message.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: www.google.com</span><br><span class="line">User-Agent: Mozilla/5.0 xxx</span><br></pre></td></tr></table></figure>
 <p>Difference between HTTP GET and HTTP POST</p>
 <ul>
 <li>GET method can send limited data (URL encoding) is sent because the request parameter is appended into the URL. POST method can send large amount of data because the request parameter is appended into the body.</li>
 <li>In GET method only ASCII characters are allowed.    In POST method all types of data is allowed.</li>
 <li>Data passed through GET method can be easily stolen by attackers.    Data passed through POST method can not be easily stolen by attackers.</li>
+</ul>
+<h4 id="Response-Message"><a href="#Response-Message" class="headerlink" title="Response Message"></a>Response Message</h4><p>Status line:<br>Header lines:<br>Entity body: contains the requested object itself.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Content-Length: 21932</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Cache-Control: max-age=300</span><br><span class="line"></span><br><span class="line">(data data data data data ...)</span><br></pre></td></tr></table></figure>
+
+<h3 id="E-mail"><a href="#E-mail" class="headerlink" title="E-mail"></a>E-mail</h3><h4 id="Overview-1"><a href="#Overview-1" class="headerlink" title="Overview"></a>Overview</h4><ul>
+<li>SMTP is the principal application-layer protocol for Internet electronic mail.</li>
+<li>SMTP uses TCP as its underlying transport protocol.</li>
 </ul>
 <h2 id="Transport"><a href="#Transport" class="headerlink" title="Transport"></a>Transport</h2><p>TCP connections are established via an exchange known as the three-way handshake. If A is the client and B is the LISTENing server, then the handshake proceeds as follows:</p>
 <ul>
