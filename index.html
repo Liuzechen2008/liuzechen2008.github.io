@@ -124,13 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -164,6 +164,76 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/05/27/detailed-explanation-of-java-spec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/27/detailed-explanation-of-java-spec/" class="post-title-link" itemprop="url">Detailed Explanation of Java Spec</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-27 19:34:28 / Modified: 21:17:27" itemprop="dateCreated datePublished" datetime="2022-05-27T19:34:28+08:00">2022-05-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="public-String-split-String-regex-int-limit"><a href="#public-String-split-String-regex-int-limit" class="headerlink" title="public String[] split(String regex, int limit)"></a>public String[] split(String regex, int limit)</h2><p>Positive-width match at the beginning of this string then an empty leading substring is included at the beginning of the resulting array. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> <span class="string">&quot;boo:and:foo&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        String[] ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;boo:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;o:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">3</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;o&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;&quot;, &quot;&quot; ]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This method works as if by invoking the split method with limit argument of zero. </span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -287,7 +357,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-27 18:07:42" itemprop="dateModified" datetime="2022-04-27T18:07:42+08:00">2022-04-27</time>
+      <time title="Modified: 2022-05-27 21:17:27" itemprop="dateModified" datetime="2022-05-27T21:17:27+08:00">2022-05-27</time>
     </span>
 
   
@@ -409,7 +479,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="Data-Link"><a href="#Data-Link" class="headerlink" title="Data Link"></a>Data Link</h2><p>MAC Address: refers to a unique identifier that gets assigned to a Network Interface Card&#x2F; Controller (NIC).</p>
+<h2 id="Data-Link"><a href="#Data-Link" class="headerlink" title="Data Link"></a>Data Link</h2><p>MAC Address: refers to a unique (not absolutely unique, just relatively probable unique, analogous to the UUID) identifier that gets assigned to a Network Interface Card&#x2F; Controller (NIC).</p>
 
       
     </div>
@@ -852,7 +922,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-27 23:04:23" itemprop="dateModified" datetime="2022-04-27T23:04:23+08:00">2022-04-27</time>
+      <time title="Modified: 2022-05-10 20:57:40" itemprop="dateModified" datetime="2022-05-10T20:57:40+08:00">2022-05-10</time>
     </span>
 
   
@@ -876,12 +946,12 @@
 <p>Source works in the <strong>current shell</strong>, unlike running bash which creates a <strong>new shell</strong>. This isn’t obvious since no new windows are displayed.</p>
 <p><strong>Example</strong>：</p>
 <p>Write a simple script (echo.sh) like this:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$USER</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$USER</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span></span><br></pre></td></tr></table></figure>
 
 <p>Assign “new_name” to the variable name, then try all 3 commands in the same terminal .</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ name=new_name</span><br><span class="line">$ bash echo.sh </span><br><span class="line">lzc</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">source</span> echo.sh </span><br><span class="line">lzc</span><br><span class="line">new_name</span><br><span class="line">$ . echo.sh </span><br><span class="line">lzc</span><br><span class="line">new_name</span><br></pre></td></tr></table></figure>
 
-<p>Simply put, if you create a <strong>local variable</strong> in a terminal shell, it will be lost once you exit that shell.</p>
+<p>If you create a <strong>local variable</strong> in a terminal shell, it will be lost once you exit that shell.</p>
 <p>In contrast, an <strong><a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/EnvironmentVariables">environmental variable</a></strong> has persistence in your operating system. </p>
 <p>As you can see, your <strong>local variable</strong> was not recognized when you executed your script via <strong>bash</strong>.</p>
 <h2 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h2><p>Prints the shared objects (shared libraries) required by each program or shared object specified on the command line.</p>
@@ -895,6 +965,200 @@
 <p> The buffers remember what’s in directories, what file permissions are, and keep track of what memory is being written from or read to for a particular block device. </p>
 <p> The cache only contains the contents of the files themselves.</p>
 
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liuzechen2008.github.io/2022/04/08/command-line-environment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zechen Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Personal Blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/08/command-line-environment/" class="post-title-link" itemprop="url">Command-line Environment in Shell</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-08 21:34:28" itemprop="dateCreated datePublished" datetime="2022-04-08T21:34:28+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-27 21:17:27" itemprop="dateModified" datetime="2022-05-27T21:17:27+08:00">2022-05-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Job-Control"><a href="#Job-Control" class="headerlink" title="Job Control"></a>Job Control</h2><h3 id="Standard-signals"><a href="#Standard-signals" class="headerlink" title="Standard signals"></a>Standard signals</h3><p>Killing a process</p>
+<ul>
+<li>Use the SIGINT signal, by typing Ctrl-C.</li>
+<li>Use the SIGQUIT signal, by typing Ctrl-\.</li>
+<li>Use the SIGTERM signal, a more generic signal for asking a process to exit gracefully.</li>
+<li>Use the SIGKILL signal, it cannot be captured by the process and it will always terminate it immediately. However, it can have bad side effects such as leaving orphaned children processes.</li>
+</ul>
+<p>Pausing and backgrounding a process</p>
+<ul>
+<li>Use the SIGTSTP signal, by typing Ctrl-Z.</li>
+<li>Use fg or bg to continue the paused job in the foreground or in the background.</li>
+<li>Use the &amp; suffix in a command will run the command in the background.</li>
+</ul>
+<p>The numeric value (x86&#x2F;ARM) for each signal is given in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Numbering</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Hangup detected on controlling terminal or death of controlling process</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>2</td>
+<td>Interrupt from keyboard</td>
+</tr>
+<tr>
+<td>SIGQUIT</td>
+<td>3</td>
+<td>Quit from keyboard</td>
+</tr>
+<tr>
+<td>SIGILL</td>
+<td>4</td>
+<td>Illegal Instruction</td>
+</tr>
+<tr>
+<td>SIGTRAP</td>
+<td>5</td>
+<td>Trace&#x2F;breakpoint trap</td>
+</tr>
+<tr>
+<td>SIGABRT</td>
+<td>6</td>
+<td>Abort signal from abort(3)</td>
+</tr>
+<tr>
+<td>SIGIOT</td>
+<td>6</td>
+<td>IOT trap. A synonym for SIGABRT</td>
+</tr>
+<tr>
+<td>SIGBUS</td>
+<td>7</td>
+<td>Bus error (bad memory access)</td>
+</tr>
+<tr>
+<td>SIGFPE</td>
+<td>8</td>
+<td>Floating-point exception</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Kill signal</td>
+</tr>
+<tr>
+<td>SIGUSR1</td>
+<td>10</td>
+<td>User-defined signal 1</td>
+</tr>
+<tr>
+<td>SIGSEGV</td>
+<td>11</td>
+<td>Invalid memory reference</td>
+</tr>
+<tr>
+<td>SIGUSR2</td>
+<td>12</td>
+<td>User-defined signal 2</td>
+</tr>
+<tr>
+<td>SIGPIPE</td>
+<td>13</td>
+<td>Broken pipe: write to pipe with no readers</td>
+</tr>
+<tr>
+<td>SIGALRM</td>
+<td>14</td>
+<td>Timer signal from alarm(2)</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Termination signal</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>19</td>
+<td>Stop process</td>
+</tr>
+<tr>
+<td>SIGTSTP</td>
+<td>20</td>
+<td>Stop typed at terminal</td>
+</tr>
+</tbody></table>
+<p>Use “man 7 signal” command for more details:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ man 7 signal</span><br><span class="line">Signal     Value     Action   Comment</span><br><span class="line">──────────────────────────────────────────────────────────────────────</span><br><span class="line">SIGHUP        1       Term    Hangup detected on controlling terminal</span><br><span class="line">                              or death of controlling process</span><br><span class="line">SIGINT        2       Term    Interrupt from keyboard</span><br><span class="line">SIGQUIT       3       Core    Quit from keyboard</span><br><span class="line">SIGILL        4       Core    Illegal Instruction</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SIGABRT       6       Core    Abort signal from abort(3)</span><br><span class="line">SIGFPE        8       Core    Floating point exception</span><br><span class="line">SIGKILL       9       Term    Kill signal</span><br><span class="line">SIGSEGV      11       Core    Invalid memory reference</span><br><span class="line">SIGPIPE      13       Term    Broken pipe: write to pipe with no</span><br><span class="line">                              readers</span><br><span class="line">SIGALRM      14       Term    Timer signal from alarm(2)</span><br><span class="line">SIGTERM      15       Term    Termination signal</span><br><span class="line">SIGUSR1   30,10,16    Term    User-defined signal 1</span><br><span class="line">SIGUSR2   31,12,17    Term    User-defined signal 2</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+
+<p>Use the kill command to send this signal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -INT &lt;PID&gt;</span><br><span class="line">$ <span class="built_in">kill</span> -2 &lt;PID&gt;</span><br><span class="line">$ <span class="built_in">kill</span> -TERM &lt;PID&gt;</span><br><span class="line">$ <span class="built_in">kill</span> -15 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dotfiles"><a href="#Dotfiles" class="headerlink" title="Dotfiles"></a>Dotfiles</h2>
       
     </div>
 
