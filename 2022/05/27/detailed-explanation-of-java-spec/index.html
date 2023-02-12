@@ -29,7 +29,7 @@
 <meta property="og:description" content="public String[] split(String regex, int limit)Positive-width match at the beginning of this string then an empty leading substring is included at the beginning of the resulting array.  123456789101112">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-27T11:34:28.000Z">
-<meta property="article:modified_time" content="2022-05-27T13:17:27.537Z">
+<meta property="article:modified_time" content="2023-02-12T07:31:33.900Z">
 <meta property="article:author" content="Zechen Liu">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-05-27 19:34:28 / Modified: 21:17:27" itemprop="dateCreated datePublished" datetime="2022-05-27T19:34:28+08:00">2022-05-27</time>
+      <time title="Created: 2022-05-27 19:34:28" itemprop="dateCreated datePublished" datetime="2022-05-27T19:34:28+08:00">2022-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-12 15:31:33" itemprop="dateModified" datetime="2023-02-12T15:31:33+08:00">2023-02-12</time>
     </span>
 
   
@@ -224,7 +230,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="public-String-split-String-regex-int-limit"><a href="#public-String-split-String-regex-int-limit" class="headerlink" title="public String[] split(String regex, int limit)"></a>public String[] split(String regex, int limit)</h2><p>Positive-width match at the beginning of this string then an empty leading substring is included at the beginning of the resulting array. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> <span class="string">&quot;boo:and:foo&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        String[] ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;boo:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;o:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">3</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;o&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;&quot;, &quot;&quot; ]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This method works as if by invoking the split method with limit argument of zero. </span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> <span class="string">&quot;boo:and:foo&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        String[] ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;boo:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;o:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">3</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;o&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;&quot;, &quot;&quot; ]</span></span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">points</span> <span class="operator">=</span> <span class="string">&quot;1.22.03&quot;</span>;</span><br><span class="line">        String[] ns = points.split(<span class="string">&quot;\\.&quot;</span>);<span class="comment">//. matches any character, \. matches the character . </span></span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;1&quot;, &quot;22&quot;, &quot;03&quot;]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This method works as if by invoking the split method with limit argument of zero. </span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -265,7 +271,7 @@
 
 <div class="copyright">
   &copy; 2021 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

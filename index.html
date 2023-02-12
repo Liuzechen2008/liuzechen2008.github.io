@@ -124,13 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,9 +201,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-05-27 19:34:28 / Modified: 21:17:27" itemprop="dateCreated datePublished" datetime="2022-05-27T19:34:28+08:00">2022-05-27</time>
+      <time title="Created: 2022-05-27 19:34:28" itemprop="dateCreated datePublished" datetime="2022-05-27T19:34:28+08:00">2022-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-12 15:31:33" itemprop="dateModified" datetime="2023-02-12T15:31:33+08:00">2023-02-12</time>
     </span>
 
   
@@ -217,7 +223,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="public-String-split-String-regex-int-limit"><a href="#public-String-split-String-regex-int-limit" class="headerlink" title="public String[] split(String regex, int limit)"></a>public String[] split(String regex, int limit)</h2><p>Positive-width match at the beginning of this string then an empty leading substring is included at the beginning of the resulting array. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> <span class="string">&quot;boo:and:foo&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        String[] ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;boo:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;o:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">3</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;o&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;&quot;, &quot;&quot; ]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This method works as if by invoking the split method with limit argument of zero. </span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> <span class="string">&quot;boo:and:foo&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        String[] ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;boo:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;o:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">3</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:foo&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;o&quot;]</span></span><br><span class="line">        ns = test.split(<span class="string">&quot;o&quot;</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;b&quot;, &quot;&quot;, &quot;:and:f&quot;, &quot;&quot;, &quot;&quot; ]</span></span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">points</span> <span class="operator">=</span> <span class="string">&quot;1.22.03&quot;</span>;</span><br><span class="line">        String[] ns = points.split(<span class="string">&quot;\\.&quot;</span>);<span class="comment">//. matches any character, \. matches the character . </span></span><br><span class="line">        System.out.println(Arrays.toString(ns));<span class="comment">//[&quot;1&quot;, &quot;22&quot;, &quot;03&quot;]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//This method works as if by invoking the split method with limit argument of zero. </span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -534,9 +540,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-04-12 11:04:48 / Modified: 20:47:53" itemprop="dateCreated datePublished" datetime="2022-04-12T11:04:48+08:00">2022-04-12</time>
+      <time title="Created: 2022-04-12 11:04:48" itemprop="dateCreated datePublished" datetime="2022-04-12T11:04:48+08:00">2022-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-12 15:31:33" itemprop="dateModified" datetime="2023-02-12T15:31:33+08:00">2023-02-12</time>
     </span>
 
   
@@ -551,7 +563,7 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="Rearrange-Table"><a href="#Rearrange-Table" class="headerlink" title="Rearrange Table"></a>Rearrange Table</h2><p>A UNION statement does a SELECT DISTINCT on the results set. </p>
 <p>If you know that all the records returned are unique from your union, use <strong>UNION ALL</strong> instead, it gives faster results.</p>
-<p> <strong>Example:</strong> Write an SQL query to rearrange the Products table so that each row has (product_id, store, price). If a product is not available in a store, do not include a row with that product_id and store combination in the result table.</p>
+<p><strong>Example:</strong> Write an SQL query to rearrange the Products table so that each row has (product_id, store, price). If a product is not available in a store, do not include a row with that product_id and store combination in the result table.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Products table:</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| product_id | store1 | store2 | store3 |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">| 0          | 95     | 100    | 105    |</span><br><span class="line">| 1          | 70     | null   | 80     |</span><br><span class="line">+------------+--------+--------+--------+</span><br><span class="line">Output: </span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| product_id | store  | price |</span><br><span class="line">+------------+--------+-------+</span><br><span class="line">| 0          | store1 | 95    |</span><br><span class="line">| 0          | store2 | 100   |</span><br><span class="line">| 0          | store3 | 105   |</span><br><span class="line">| 1          | store1 | 70    |</span><br><span class="line">| 1          | store3 | 80    |</span><br><span class="line">+------------+--------+-------+</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store1&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store1 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store2&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store2 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store2 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    product_id,</span><br><span class="line">    <span class="string">&#x27;store3&#x27;</span> <span class="keyword">AS</span> store,</span><br><span class="line">    store3 <span class="keyword">AS</span> price</span><br><span class="line"><span class="keyword">FROM</span> products</span><br><span class="line"><span class="keyword">WHERE</span> store3 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
@@ -815,7 +827,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-22 20:20:07" itemprop="dateModified" datetime="2022-04-22T20:20:07+08:00">2022-04-22</time>
+      <time title="Modified: 2023-02-12 15:31:33" itemprop="dateModified" datetime="2023-02-12T15:31:33+08:00">2023-02-12</time>
     </span>
 
   
@@ -848,8 +860,9 @@
 <p>COUNT(expression) function: It provides the result of the expression counting the number of rows <strong>without NULL values</strong>.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#Answer</span><br><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(trans_date, <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="keyword">month</span>,</span><br><span class="line">    country,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> trans_count,</span><br><span class="line">    <span class="built_in">COUNT</span>(IF(state <span class="operator">=</span> <span class="string">&#x27;approved&#x27;</span>, <span class="number">1</span>, <span class="keyword">NULL</span>)) <span class="keyword">AS</span> approved_count,</span><br><span class="line">    <span class="built_in">SUM</span>(amount) <span class="keyword">AS</span> trans_total_amount,</span><br><span class="line">    <span class="built_in">SUM</span>(IF(state <span class="operator">=</span> <span class="string">&#x27;approved&#x27;</span>, amount, <span class="number">0</span>)) <span class="keyword">AS</span> approved_total_amount</span><br><span class="line"><span class="keyword">FROM</span> Transactions</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">month</span>, country</span><br></pre></td></tr></table></figure>
 
-
-
+<p>Conclusion: </p>
+<p>NULL is falsey, meaning that WHERE NULL is just like WHERE FALSE. The row in question does not get included. </p>
+<p>Do anything with NULL will get NULL. e.g. if x is NULL, then x &gt; 3, or x + 4 evaluate to NULL.<br>Even x &#x3D; NULL would evaluate to NULL; if you want to check whether x is NULL, then write x IS NULL or x IS NOT NULL instead.</p>
 <h1 id="Table-aliases-in-a-multiple-table"><a href="#Table-aliases-in-a-multiple-table" class="headerlink" title="Table aliases in a multiple-table"></a>Table aliases in a multiple-table</h1><p><strong>Example:</strong> Write an SQL query to delete all the duplicate emails, keeping only one unique email with <strong>the smallest id</strong>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">Person table:</span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">| 3  | john@example.com |</span><br><span class="line">+----+------------------+</span><br><span class="line">Output: </span><br><span class="line">+----+------------------+</span><br><span class="line">| id | email            |</span><br><span class="line">+----+------------------+</span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">+----+------------------+</span><br></pre></td></tr></table></figure>
 
@@ -1264,6 +1277,9 @@
 
 
 
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 </div>
   </main>
@@ -1274,7 +1290,7 @@
 
 <div class="copyright">
   &copy; 2021 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
